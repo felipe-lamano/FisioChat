@@ -114,13 +114,13 @@ services:
     container_name: n8n
     restart: unless-stopped
     environment:
-      WEBHOOK_URL: http://localhost:8080/
+      WEBHOOK_URL: http://host.docker.internal:5678
       N8N_HOST: host.docker.internal
       GENERIC_TIMEZONE: America/Sao_Paulo
       N8N_LOG_LEVEL: debug
       N8N_COMMUNITY_PACKAGES_ALLOW_TOOL_USAGE: true
     ports:
-      - 8080:5678
+      - 5678:5678
     volumes:
       - n8n_storage:/home/node/.n8n
       - ./n8n/demo-data:/demo-data
